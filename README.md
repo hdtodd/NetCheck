@@ -4,7 +4,7 @@ Monitor and report on external network connectivity changes
 ## Description
 `NetCheck` is a suite of modules that monitor your computer's connection to the external Internet and reports on the connection's up/down events.  It does not monitor bandwidth, just connectivity disruptions.
 
-`NetCheck`'s creation was motivated by my service provider's intermittent router failures that broke and then restored our external network connections.  The `NetCheck` logs confirmed that the disconnections were caused by the provider's routers, which were subsequently corrected.
+`NetCheck`'s creation was motivated by my service provider's intermittent router failures that randomly broke and then restored our external network connections.  The `NetCheck` logs confirmed that the disconnections were caused by the provider's routers, which were subsequently corrected.
 
 This distribution package includes:
 -  A `bash` script that checks connectivity status every 60 seconds and records events in a log file;
@@ -27,5 +27,12 @@ Run `NetCheckRpt.bsh` to obtain a report on connectivity status and disruptions.
 ## Uninstalling
 `cd` into the repository clone `NetCheck` directory and type `sudo make uninstall`.  This stops and disables the `systemctl NetCheck` service, removes the `.log` file, and removes the `NetCheck.bsh` and `NetCheckRpt.bsh` files.
 
+## Release History
+
+| Version | Date       | Changes |
+|---------|------------|---------|
+| V2.0    | 2026.09.17 | Document and automate installation |
+| V1.0    | 2026.05.17 | Implement recording and reporting scripts and put into production |
+
 ## Author
-Written by HDTodd@gmail.com, 2026.05.17; updated and documented for distribution 2026.09.17
+Written by HDTodd@gmail.com, 2026.05.17.
