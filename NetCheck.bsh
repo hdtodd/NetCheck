@@ -1,0 +1,31 @@
+#!/bin/bash
+#  NetCheck.bsh: a bash script to monitor
+#  your computer's network connection to the
+#  outside world.
+#  The IP for the server you wish to ping
+#     Use the IP of the first responding external
+#     router in a traceroute to 8.8.8.8
+SERVER=xx.xx.xx.xxx
+LOGFILE="/var/log/NetCheck.log"
+UP="↑"
+DOWN="↓"
+LAST=" "
+
+while true; do
+  # Try pinging the server, sending output to /dev/null
+  ping -c2 ${SERVER} > /dev/null
+  if [[ $? = 0 ]] 
+  then
+      NOW=$UP
+  else
+      NOW=$DOWN
+  fi
+  if [[ $NOW != $LAST ]]
+    then
+      echo -e $NOW `date "+%s"` >> $LOGFILE
+    fi
+  LAST=$NOW
+  sleep 59
+done
+
+

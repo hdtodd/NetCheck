@@ -1,0 +1,34 @@
+#!/bin/bash
+# Script to process /var/log/NetCheck.log file
+#   of external internet connectivity status
+#   and report down-time events.
+# Format of data file:
+#    <up/down flag> <Epoch time in seconds>
+#
+# Invoke as NetCheckRpt.bsh
+#
+# HDTodd@gmail.com, 2026.09.17
+
+FILE="/var/log/NetCheck.log"
+UP="↑"
+DOWN="↓"
+PRIOR=" "
+
+echo -e "\nUp/Down Status Summary of Network Pings of 1st External Router\n"
+
+#date --date='@1779031406' +"%Y-%m-%d:%H:%M:%S"
+while read -r STATUS TOD; do
+  if [[ "$STATUS" != "$PRIOR" ]]; then
+      if [[ "$STATUS" == "$UP" ]]; then
+	  echo -e "$STATUS UP\t"   `date --date="@$TOD" +'%Y-%m-%d@%H:%M:%S'`
+      else
+	  if [[ "$STATUS" == "$DOWN" ]]; then
+	      echo -e "$STATUS DOWN\t" `date --date="@$TOD" +'%Y-%m-%d@%H:%M:%S'`
+	  fi
+      fi
+      PRIOR=$STATUS
+  fi
+  LAST=$TOD
+  ST=$STATUS
+done < $FILE
+echo -e "Last status, <$ST> @ " `date --date="@$LAST" +'%Y-%m-%d@%H:%M:%S'` "\n"

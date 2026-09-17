@@ -1,0 +1,22 @@
+#/etc/systemd/system/NetCheck.service:
+#hdtodd@gmail.com, 2026.09.17
+[Unit]
+Description=NetCheck service script
+StartLimitIntervalSec=5
+Documentation=
+After=network.target
+
+[Service]
+Type=exec
+ExecStart=/usr/local/bin/NetCheck.bsh
+
+# Restart script if stopped
+Restart=always
+# Wait 30s before restart
+RestartSec=30s
+
+# Tag things in the log
+# View status logs with: NetCheckRpt.bsh
+
+[Install]
+WantedBy=multi-user.target
