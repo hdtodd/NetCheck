@@ -1,5 +1,5 @@
 # NetCheck
-Monitor and report on external network connectivity changes
+Monitor and report on external Internet connectivity disruptions.
 
 ## Description
 `NetCheck` is a suite of modules that monitor your computer's connection to the external Internet and reports on the connection's up/down events.  It does not monitor bandwidth, just connectivity disruptions.
