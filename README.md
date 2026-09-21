@@ -6,6 +6,18 @@ Monitor and report on external Internet connectivity disruptions.
 
 `NetCheck`'s creation was motivated by my service provider's intermittent router failures that randomly broke and then restored our external network connections.  The `NetCheck` logs confirmed that the disconnections were caused by the provider's routers, which were subsequently corrected.
 
+Example report:
+```
+$ NetCheckRpt.bsh 
+
+Up/Down Status Summary of Network Pings of 1st External Router
+
+↑ UP	 2026-09-17@08:32:39
+↓ DOWN	 2026-09-18@02:00:10
+↑ UP	 2026-09-18@07:11:55
+Last status, <↑> @  2026-09-18@07:11:55 
+```
+
 This distribution package includes:
 -  A `bash` script that checks connectivity status every 60 seconds and records events in a log file;
 -  A `bash` script that reads that log file and reports on those up/down events;
@@ -19,7 +31,16 @@ First, clone this repository: `git clone http://github.com/hdtodd/NetCheck` and 
 2. The distributed code expects to use `/usr/local/bin` for the two scripts and to keep the connectivity log in `/var/log`.  Decide if those are acceptable; if not identify the directories you would prefer to use.
 3. Edit `NetCheck.bsh` to set the "server" IP address to the one you identified in step 1 and to change the path to the log file (if you want a different location/name).
 4. If you're changing directories from those as distributed, change those in `Makefile` and in `NetCheckRpt.bsh`.
-5. `sudo make install`
+5. Now install with the command `sudo make install`
+
+## Use
+After installation, check to confirm that `NetCheck` is running by issuing the command 
+
+        $ ps ax | grep NetCheck
+
+Once it is in operation, no further action is needed.
+
+`NetCheck` only records _changes_ in network connectivity status, so the log file will (normally) grow in size only very slowly.  Still, you might occasionally check `/var/log/NetCheck.log` and remove it if it becomes very large.
 
 ## Checking Connectivity Events
 Run `NetCheckRpt.bsh` to obtain a report on connectivity status and disruptions.
