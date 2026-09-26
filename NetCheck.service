@@ -1,5 +1,6 @@
 #/etc/systemd/system/NetCheck.service:
-#hdtodd@gmail.com, 2026.09.17
+# V2.0
+# hdtodd@gmail.com, 2026.09.17
 [Unit]
 Description=NetCheck service script
 StartLimitIntervalSec=5
