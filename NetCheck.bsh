@@ -1,4 +1,5 @@
 #!/bin/bash
+#  V2.0
 #  NetCheck.bsh: a bash script to monitor
 #  your computer's network connection to the
 #  outside world.
