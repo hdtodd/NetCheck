@@ -1,4 +1,5 @@
 #!/bin/bash
+# V2.1
 # Script to process /var/log/NetCheck.log file
 #   of external internet connectivity status
 #   and report down-time events.
