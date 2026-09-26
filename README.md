@@ -1,4 +1,4 @@
-# NetCheck
+# NetCheck V2.1
 Monitor and report on external Internet connectivity disruptions.
 
 ## Description
