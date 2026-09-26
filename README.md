@@ -58,6 +58,7 @@ Run `NetCheckRpt.bsh` to obtain a report on connectivity status and disruptions.
 
 | Version | Date       | Changes |
 |---------|------------|---------|
+| V2.1    | 2026.09.26 | Add ability to report manual notations in log file |
 | V2.0    | 2026.09.17 | Document and automate installation |
 | V1.0    | 2026.05.17 | Implement recording and reporting scripts and put into production |
 
