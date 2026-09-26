@@ -12,10 +12,14 @@ $ NetCheckRpt.bsh
 
 Up/Down Status Summary of Network Pings of 1st External Router
 
-↑ UP	 2026-09-17@08:32:39
-↓ DOWN	 2026-09-18@02:00:10
-↑ UP	 2026-09-18@07:11:55
-Last status, <↑> @  2026-09-18@07:11:55 
+↑ UP	 2026-09-17@08:32:39 	
+↓ DOWN	 2026-09-18@02:00:10 	
+↑ UP	 2026-09-18@07:11:55 	
+↓ DOWN	 2026-09-24@08:46:02 	
+↑ UP	 2026-09-24@08:47:02 	
+↓ DOWN	 2026-09-26@08:33:30 	Router update
+↑ UP	 2026-09-26@08:34:30 	
+Last status, <↑> @  2026-09-26@08:34:30 
 ```
 
 This distribution package includes:
@@ -41,6 +45,8 @@ After installation, check to confirm that `NetCheck` is running by issuing the c
 Once it is in operation, no further action is needed.
 
 `NetCheck` only records _changes_ in network connectivity status, so the log file will (normally) grow in size only very slowly.  Still, you might occasionally check `/var/log/NetCheck.log` and remove it if it becomes very large.
+
+Notations that are edited into `/var/log/NetCheck.log` at the end of an entry line are reported in the `NetCheckRpt` summary, as seen above.  This may be handy to note cases in which the Internet connection has been intentionally disrupted, such as when a router update is performed.
 
 ## Checking Connectivity Events
 Run `NetCheckRpt.bsh` to obtain a report on connectivity status and disruptions.

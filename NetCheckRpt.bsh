@@ -17,13 +17,14 @@ PRIOR=" "
 echo -e "\nUp/Down Status Summary of Network Pings of 1st External Router\n"
 
 #date --date='@1779031406' +"%Y-%m-%d:%H:%M:%S"
-while read -r STATUS TOD; do
+while read -r STATUS TOD REMARK; do
   if [[ "$STATUS" != "$PRIOR" ]]; then
       if [[ "$STATUS" == "$UP" ]]; then
-	  echo -e "$STATUS UP\t"   `date --date="@$TOD" +'%Y-%m-%d@%H:%M:%S'`
+	  echo -e "$STATUS UP\t"   `date --date="@$TOD" +'%Y-%m-%d@%H:%M:%S'` "\t$REMARK"
       else
 	  if [[ "$STATUS" == "$DOWN" ]]; then
-	      echo -e "$STATUS DOWN\t" `date --date="@$TOD" +'%Y-%m-%d@%H:%M:%S'`
+	      echo -e "$STATUS DOWN\t" `date --date="@$TOD" +'%Y-%m-%d@%H:%M:%S'`  "\t$REMARK"
+
 	  fi
       fi
       PRIOR=$STATUS
